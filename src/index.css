@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────
+   DESIGN TOKENS — drives all Tailwind utilities
+   e.g. bg-surface, text-text-muted, border-border, etc.
+───────────────────────────────────────── */
+@theme {
+  --color-text: #E2E8F8;
+  --color-text-muted: #5A6480;
+  --color-text-faint: #2E3448;
+  --color-bg: #0A0C12;
+  --color-surface: #0F1219;
+  --color-surface2: #141720;
+  --color-surface3: #1A1E2A;
+  --color-border: #1E2333;
+  --color-border2: #252B3B;
+  --color-accent: #3D6FFF;
+  --color-accent2: #2952CC;
+  --color-accent-dim: rgba(61, 111, 255, 0.10);
+  --color-accent-border: rgba(61, 111, 255, 0.20);
+  --color-pos: #10B981;
+  --color-neg: #EF4444;
+  --color-neu: #F59E0B;
+
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Sidebar & header sizes as spacing tokens */
+  --spacing-sidebar: 220px;
+  --spacing-header: 52px;
+  --spacing-footer: 40px;
+}
+
+/* ─────────────────────────────────────────
+   BASE — things Tailwind utilities can't replace
+───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  user-select: none;
+}
+
+/* ─────────────────────────────────────────
+   CUSTOM SCROLLBAR (no Tailwind utility)
+───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border2);
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────
+   KEYFRAMES (used via Tailwind animate-* or inline style)
+───────────────────────────────────────── */
+@keyframes healthPing {
+  0% {
+    transform: scale(1);
+    opacity: .5;
+  }
+
+  70% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tailwind @utility helpers that reference the keyframes above */
+@utility animate-shimmer {
+  background: linear-gradient(90deg,
+      var(--color-surface) 25%,
+      var(--color-surface3) 50%,
+      var(--color-surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@utility animate-fade-up {
+  animation: fadeUp .22s ease-out both;
+}
