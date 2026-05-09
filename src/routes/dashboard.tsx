@@ -70,7 +70,7 @@ export default function Dashboard() {
 		{ label: "Endpoints", value: "2", sub: "Routes registered" },
 		{
 			label: "Mode",
-			value:
+			value: 
 				RequestHandler.mode === "development"
 					? "DEV"
 					: RequestHandler.mode === "production"

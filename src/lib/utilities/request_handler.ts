@@ -1,5 +1,5 @@
 export default class RequestHandler {
-	static mode = import.meta.env.VITE_MODE;
+	static mode = import.meta.env.MODE;
 
 	static baseURL =
 		RequestHandler.mode === "development"

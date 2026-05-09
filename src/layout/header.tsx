@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import RequestHandler from "../lib/utilities/request_handler";
+import { VERSION } from "../lib/constant";
 
 const ROUTE_META: Record<string, { title: string }> = {
     "/": { title: "Dashboard" },
@@ -98,7 +99,7 @@ export default function Header() {
                 </AnimatePresence>
 
                 <span className="px-[9px] py-1 rounded-[5px] bg-surface3 border border-border text-[9px] font-mono text-text-faint">
-                    v1.0.0
+                    v{ VERSION }
                 </span>
             </div>
         </motion.header>
